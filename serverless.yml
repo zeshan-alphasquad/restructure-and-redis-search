@@ -1,0 +1,50 @@
+service: restructure-and-redis-search
+provider:
+  name: aws
+  runtime: nodejs8.10
+plugins:
+  - serverless-offline
+functions:
+  restructureJson:
+    handler: handler.restructureJson
+    environment:
+      PORT: 6379 
+      HOST: clusterfbt-search.ryey1a.ng.0001.use1.cache.amazonaws.com
+    events:
+      - http:
+          path: /restructureJson
+          method: get
+      - http:
+          path: /restructureJson
+          method: post
+  redisSet:
+    handler: handler.redisSet
+    environment:
+      PORT: 6379
+      REDIS_URI : localhost
+    events:
+      - http:
+          path: /redisSet
+          method: get
+      - http:
+          path: /redisSet
+          method: post
+  redisGet:
+    handler: handler.redisGet
+    environment:
+      PORT: 6379
+      REDIS_URI : localhost
+    events:
+      - http:
+          path: /redisGet
+          method: get
+      - http:
+          path: /redisGet
+          method: post
+  hello:
+    handler: handler.hello
+    events: 
+      - http:
+          path: /hello
+          method: get
+  

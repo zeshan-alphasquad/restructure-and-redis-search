@@ -1,0 +1,16 @@
+{
+  "name": "restructure-and-redis-search",
+  "version": "1.0.0",
+  "description": "Restructure the Object and Send it fearch",
+  "main": "handler",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^2.8.0",
+    "redis-clustr": "^1.7.0",
+    "serverless-offline": "^5.12.1"
+  }
+}
